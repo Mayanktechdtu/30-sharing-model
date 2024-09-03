@@ -1738,4 +1738,3 @@ if page == "Resources & Contact":
     </div>
     ''', unsafe_allow_html=True)
 
-    
