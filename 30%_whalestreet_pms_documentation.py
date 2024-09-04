@@ -6,6 +6,10 @@ import numpy as np
 from statsmodels.tsa.arima.model import ARIMA
 import datetime
 import os
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+
 
 # Function to simulate performance data
 def simulate_performance_data(): 
@@ -46,7 +50,7 @@ months, cumulative_returns, cumulative_nifty_returns, cumulative_fd_returns, dra
 st.sidebar.title("Whalestreet Dashboard")
 page = st.sidebar.radio(
     "Navigate to", 
-    ["Overview", "Key Features", "Portfolio Performance", "Client P&L", "Investment Strategy", "Growth Projections","Understand the Risk","Why Whalestreet PMS Stands Out", "Sharing Revenue Model", "Steps to Start Your PMS", "Resources & Contact"]
+    ["Overview", "Key Features", "Portfolio Performance", "Client P&L", "Investment Strategy", "Growth Projections","Understand the Risk","Why Whalestreet PMS Stands Out", "Sharing Revenue Model", "Steps to Start Your PMS","Promising Aspects of Whalesstreet", "Resources & Contact"]
 )
 
 # Light Theme Styling with Icons
@@ -1659,7 +1663,7 @@ elif page == "Steps to Start Your PMS":
         <h3 style="color: #1E2D39;">Important Conditions and Rules</h3>
         <ul style="list-style-type: none; padding-left: 0; font-size: 16px; color: #1E2D39;">
             <li style="margin-bottom: 15px;"><img src="https://img.icons8.com/ios-filled/30/FF6347/lock.png" style="vertical-align: middle;"/> 
-            <strong>Lock-in Period:</strong> While there is no strict lock-in period, we recommend a minimum holding period of 3 years to see significant portfolio growth based on our historical data. If you wish to withdraw your capital before this period, the withdrawal process will be adjusted according to the P&L status at the time, with capital disbursed within T+5 days.</li>
+            <strong>Lock-in Period:</strong> While there is no strict lock-in period, if you choose to withdraw your capital before 2 year, a 3% additional charge will apply, and the funds you receive will be based on the market conditions at that time. However, if you withdraw after 2 year with 15 days prior notice, there will be no charges, and <strong>we guarantee that your deployed capital will not incur any loss. In the unlikely event of any loss after 2 year, we will cover the difference between your deployed capital and the net capital after the loss</strong>.</li>
             <li style="margin-bottom: 15px;"><img src="https://img.icons8.com/ios-filled/30/FF6347/money-bag.png" style="vertical-align: middle;"/> 
             <strong>Additional Contributions:</strong> You can make additional investments anytime.</li>
             <li style="margin-bottom: 15px;"><img src="https://img.icons8.com/ios-filled/30/FF6347/bill.png" style="vertical-align: middle;"/> 
@@ -1707,6 +1711,204 @@ elif page == "Steps to Start Your PMS":
     </div>
     ''', unsafe_allow_html=True)
 
+
+
+
+elif page == "Promising Aspects of Whalesstreet":
+    # Section Title with Icon and Styled Heading
+    st.markdown('''
+    <div style="text-align: center; padding: 30px 0;">
+        <img src="https://img.icons8.com/ios-filled/50/000000/promise.png" width="50"/>
+        <h2 style="color: #0E2F44; font-family: 'Arial', sans-serif; font-weight: bold; margin-top: 15px;">Promising Aspects of Whalesstreet</h2>
+        <p style="color: #4A4A4A; font-size: 18px; margin-top: 15px;">Your Investment, Our Commitment</p>
+    </div>
+    ''', unsafe_allow_html=True)
+
+    # Enhanced Guarantee Meter with Highlighted Text
+    st.markdown('''
+    <div style="text-align: center; padding: 30px 0;">
+        <div style="display: inline-block; background-color: #0E2F44; color: #FFFFFF; padding: 25px; border-radius: 12px; box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.2); max-width: 600px;">
+            <h2 style="margin: 0; font-size: 26px; color: #FFFF00;">100% Capital Protection Guarantee</h2>
+            <p style="margin: 15px 0; font-size: 18px; color: #FFFFFF;">"Your invested capital is fully protected, ensuring that it will not diminish by even ₹1 after 2 year."</p>
+            <div style="width: 100%; background-color: #007ACC; height: 35px; border-radius: 10px; overflow: hidden; margin: 25px 0;">
+                <div style="width: 100%; background-color: #00A650; height: 100%; text-align: center; font-weight: bold; color: #FFFFFF;">100% Protection</div>
+            </div>
+            <p style="margin: 0; font-size: 16px; color: #FFFFE0;">*If by any chance, at the end of second year, the realized capital is below your original total deployed capital, the difference will be fulfilled by us.</p>
+        </div>
+    </div>
+    ''', unsafe_allow_html=True)
+
+    # Flexible Investment Terms Section
+    st.markdown('''
+    <div style="background-color: #F1F3F4; padding: 25px; border-radius: 12px; box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);">
+        <h3 style="color: #0E2F44;">Flexible Investment Terms</h3>
+        <ul style="list-style-type: none; padding-left: 0; font-size: 16px; color: #0E2F44;">
+            <li style="margin-bottom: 20px;">
+                <img src="https://img.icons8.com/ios-filled/30/007ACC/percentage.png" style="vertical-align: middle; margin-right: 10px;"/>
+                <strong>3% Charge:</strong> A 3% charge of your initial capital will be deducted if withdrawal before 2 year.However, if you withdraw after 2 year with 15 days prior notice, there will be no charges, and we guarantee that your deployed capital will not incur any loss. <strong>In the unlikely event of any loss after 2 year, we will cover the difference between your deployed capital and the net capital after the loss.</strong>
+            </li>
+            <li style="margin-bottom: 20px;">
+                <img src="https://img.icons8.com/ios-filled/30/007ACC/economic-improvement.png" style="vertical-align: middle; margin-right: 10px;"/>
+                <strong>Market Conditions:</strong> If you withdraw before 2 years, your portfolio value will be based on the market conditions at the time of withdrawal. There is a 95-99% chance that your investment will generate an annual return of around 26-35%. However, in the worst-case scenario, there is a 1-5% chance of an unrealized loss ranging from 10-14%.
+            </li>
+            <li style="margin-bottom: 20px;">
+                <img src="https://img.icons8.com/ios-filled/30/007ACC/neutral-trading.png" style="vertical-align: middle; margin-right: 10px;"/>
+                <strong>Worst-Case Scenario:</strong> The worst-case scenario includes a 10-14% unrealized drawdown plus 3% additional charges. 
+                Although the chances of such unrealized drawdown are negligible, it is our duty to share all possible outcomes with 
+                <strong>100% transparency</strong> with our clients.
+            </li>
+            <li style="margin-bottom: 20px;">
+                <img src="https://img.icons8.com/ios-filled/30/007ACC/statistics.png" style="vertical-align: middle; margin-right: 10px;"/>
+                <strong>Most Expected Case:</strong> With a <strong>95-99% confidence level</strong>, your portfolio's expected return lies between <strong>26-35% (annually)</strong>.
+            </li>
+        </ul>
+    </div>
+    ''', unsafe_allow_html=True)
+
+    # Disclaimer before graphs
+    st.markdown('''
+    <p style="font-size: 16px; color: #0E2F44; text-align: center; background-color: #F1F3F4; padding: 10px; border-radius: 8px;">
+        <strong>The following graphs represent worst-case scenarios assuming rare events such as a pandemic, war, or similar occurrences that happen once in a decade. Even in such situations, our portfolio optimization techniques are designed to manage risks effectively. However, it is important for our clients to understand the potential risks involved in these extreme cases.</strong>
+    </p>
+    ''', unsafe_allow_html=True)
+
+    # Graph 1: Possible Outcomes Before 1 Year with Unrealized Loss Chances
+    st.markdown('''
+    <div style="text-align: center; padding: 20px 0;">
+        <h3 style="color: #0E2F44;">Potential Outcomes Before 2 Year Withdrawal</h3>
+    </div>
+    ''', unsafe_allow_html=True)
+
+    # Simulating potential outcomes before 1 year with a focus on unrealized loss chances
+    np.random.seed(42)
+    before_2_year_losses = np.random.choice([-14, -12, -10], p=[0.2, 0.3, 0.5], size=1000)  # Simulated losses with weighted probabilities
+
+    # Plotly Histogram
+    hist_data = go.Histogram(
+        x=before_2_year_losses,
+        nbinsx=20,
+        marker_color='#FF6347',
+        opacity=0.7,
+        name='Unrealized Losses'
+    )
+
+    mean_line = go.Scatter(
+        x=[np.mean(before_2_year_losses), np.mean(before_2_year_losses)],
+        y=[0, 100],
+        mode='lines',
+        line=dict(color='black', dash='dash'),
+        name=f'Mean Loss: {np.mean(before_2_year_losses):.2f}%'
+    )
+
+    layout = go.Layout(
+        title='Distribution of worst case Unrealized Losses Before 2 Year Withdrawal',
+        xaxis=dict(title='Percentage Loss', gridcolor='rgba(200, 200, 200, 0.5)'),
+        yaxis=dict(title='Frequency', gridcolor='rgba(200, 200, 200, 0.5)'),
+        bargap=0.2,
+        legend=dict(x=0.7, y=1, bgcolor='rgba(255, 255, 255, 0.5)'),
+        template='plotly_dark'
+    )
+
+    fig = go.Figure(data=[hist_data, mean_line], layout=layout)
+    st.plotly_chart(fig)
+
+    # Note and list of charges if withdrawal before 2 year
+    st.markdown('''
+    <p style="font-size: 16px; color: #0E2F44; text-align: center;">
+        <strong>Note: If you withdraw your capital before 2 year:</strong>
+    </p>
+    <ul style="list-style-type: none; padding-left: 0; font-size: 16px; color: #0E2F44;">
+        <li style="margin-bottom: 20px;">
+            <img src="https://img.icons8.com/ios-filled/30/007ACC/percentage.png" style="vertical-align: middle; margin-right: 10px;"/>
+            <strong>3% Charge:</strong> A 3% charge of your initial capital will be deducted.
+        </li>
+        <li style="margin-bottom: 20px;">
+            <img src="https://img.icons8.com/ios-filled/30/007ACC/economic-improvement.png" style="vertical-align: middle; margin-right: 10px;"/>
+            <strong>Market Conditions:</strong> You will receive the portfolio value as per the market conditions at the time of withdrawal.
+        </li>
+        <li style="margin-bottom: 20px;">
+            <img src="https://img.icons8.com/ios-filled/30/007ACC/neutral-trading.png" style="vertical-align: middle; margin-right: 10px;"/>
+            <strong>Worst-Case Scenario:</strong> The worst-case scenario includes a 10-14% unrealized drawdown plus 3% additional charges. 
+            Although the chances of such unrealized drawdown are negligible, it is our duty to share all possible outcomes with 
+            <strong>100% transparency</strong> with our clients.
+        </li>
+        <li style="margin-bottom: 20px;">
+            <img src="https://img.icons8.com/ios-filled/30/007ACC/statistics.png" style="vertical-align: middle; margin-right: 10px;"/>
+            <strong>Most Expected Case:</strong> With a <strong>95-99% confidence level</strong>, your portfolio's expected return lies between <strong>26-35% (annually)</strong>.
+        </li>
+    </ul>
+    ''', unsafe_allow_html=True)
+
+    # Graph 2: Outcomes After 1 Year with Protection
+    st.markdown('''
+    <div style="text-align: center; padding: 20px 0;">
+        <h3 style="color: #0E2F44;">Guaranteed Outcomes After 2 Year</h3>
+    </div>
+    ''', unsafe_allow_html=True)
+
+    # Simulating potential outcomes after 1 year with protection
+    after_2_year_outcomes = np.random.choice([0, 2, 5], p=[0.4, 0.4, 0.2], size=1000)  # Simulated outcomes with weighted probabilities
+
+    # Plotly Histogram
+    hist_data_2 = go.Histogram(
+        x=after_2_year_outcomes,
+        nbinsx=20,
+        marker_color='#007ACC',
+        opacity=0.7,
+        name='Outcomes'
+    )
+
+    mean_line_2 = go.Scatter(
+        x=[np.mean(after_2_year_outcomes), np.mean(after_2_year_outcomes)],
+        y=[0, 100],
+        mode='lines',
+        line=dict(color='black', dash='dash'),
+        name=f'Mean Outcome: {np.mean(after_2_year_outcomes):.2f}%'
+    )
+
+    layout_2 = go.Layout(
+        title='Distribution of Outcomes After 2 Year Withdrawal',
+        xaxis=dict(title='Percentage Change', gridcolor='rgba(200, 200, 200, 0.5)'),
+        yaxis=dict(title='Frequency', gridcolor='rgba(200, 200, 200, 0.5)'),
+        bargap=0.2,
+        legend=dict(x=0.7, y=1, bgcolor='rgba(255, 255, 255, 0.5)'),
+        template='plotly_dark'
+    )
+
+    fig_2 = go.Figure(data=[hist_data_2, mean_line_2], layout=layout_2)
+    st.plotly_chart(fig_2)
+
+    # Note and list of benefits if withdrawal after 1 year
+    st.markdown('''
+    <p style="font-size: 16px; color: #0E2F44; text-align: center;">
+        <strong>Note: If you withdraw your capital after 2 year:</strong>
+    </p>
+    <ul style="list-style-type: none; padding-left: 0; font-size: 16px; color: #0E2F44;">
+        <li style="margin-bottom: 20px;">
+            <img src="https://img.icons8.com/ios-filled/30/007ACC/money-bag.png" style="vertical-align: middle; margin-right: 10px;"/>
+            <strong>No Charges:</strong> No charges will be deducted from your capital.
+        </li>
+        <li style="margin-bottom: 20px;">
+            <img src="https://img.icons8.com/ios-filled/30/007ACC/safety-collection-place.png" style="vertical-align: middle; margin-right: 10px;"/>
+            <strong>Capital Protection:</strong> We provide a <strong>100% guarantee that there will be no loss on your capital</strong> if you hold your investment for at least 2 year.
+        </li>
+        <li style="margin-bottom: 20px;">
+            <img src="https://img.icons8.com/ios-filled/30/007ACC/neutral-trading.png" style="vertical-align: middle; margin-right: 10px;"/>
+            <strong>Worst-Case Scenario:</strong> The worst-case scenario after 2 year is that your portfolio might be at breakeven level, ensuring no loss.
+        </li>
+        <li style="margin-bottom: 20px;">
+            <img src="https://img.icons8.com/ios-filled/30/007ACC/statistics.png" style="vertical-align: middle; margin-right: 10px;"/>
+            <strong>Most Expected Case:</strong> With a <strong>95-99% confidence level</strong>, your portfolio's expected return lies between <strong>26-35% (annually)</strong>.
+        </li>
+    </ul>
+    ''', unsafe_allow_html=True)
+
+
+
+
+
+
+
 if page == "Resources & Contact":
 
     # Section Title with Icon and Styled Heading
@@ -1737,4 +1939,3 @@ if page == "Resources & Contact":
         </div>
     </div>
     ''', unsafe_allow_html=True)
-
