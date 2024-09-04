@@ -7,9 +7,6 @@ from statsmodels.tsa.arima.model import ARIMA
 import datetime
 import os
 
-
-
-
 # Function to simulate performance data
 def simulate_performance_data(): 
     np.random.seed(42)
@@ -743,7 +740,7 @@ elif page == "Why Whalestreet PMS Stands Out":
     # Section Title with Icon and Styled Heading
     st.markdown('''
     <div style="text-align: center; padding: 20px 0;">
-        <img src="https://img.icons8.com/ios-filled/50/1E2D39/trophy.png" width="50"/>
+        <img src="https://img.icons8.com/ios-filled/50/000000/trophy.png" width="50"/>
         <h2 style="color: #1E2D39; font-family: 'Arial', sans-serif; font-weight: bold; margin-top: 10px;">Why Whalestreet PMS Stands Out</h2>
         <p style="color: #4A4A4A; font-size: 18px; margin-top: 10px;">Discover the Unique Advantages We Offer Over Other PMS Providers</p>
     </div>
@@ -754,9 +751,9 @@ elif page == "Why Whalestreet PMS Stands Out":
 
     # Example data for satisfaction rates using a 0-100% scale
     satisfaction_data = {
-        "Feature": ["Transparent Reporting", "Monthly Settlements", "Investment Visibility", "Fraud Protection", "Strong Returns", "Personalized Guidance", "Direct Income Access"],
-        "Whalestreet PMS": [97, 93, 98, 100, 92, 94, 97],
-        "Other PMS": [65, 50, 55, 60, 70, 50, 45]
+        "Feature": ["Transparent Reporting", "Monthly Settlements", "Investment Visibility", "Fraud Protection", "Strong Returns", "Personalized Guidance", "Direct Income Access", "100% No Loss Guarantee"],
+        "Whalestreet PMS": [97, 93, 98, 100, 92, 94, 97, 100],
+        "Other PMS": [65, 50, 55, 60, 70, 50, 45, 0]
     }
 
     satisfaction_df = pd.DataFrame(satisfaction_data)
@@ -887,9 +884,23 @@ elif page == "Why Whalestreet PMS Stands Out":
           <td style="padding: 10px; border: 1px solid #dddddd;"><img src="https://img.icons8.com/ios-filled/50/228B22/checked--v1.png" width="30"/></td>
           <td style="padding: 10px; border: 1px solid #dddddd;"><img src="https://img.icons8.com/ios-filled/50/FF6347/cancel.png" width="30"/></td>
         </tr>
+        <tr>
+          <td style="padding: 10px; background-color: #f0f0f0; border: 1px solid #dddddd;">
+            <strong>100% No Loss Guarantee</strong>
+            <div style="text-align: left;">
+              <details>
+                <summary>More Info</summary>
+                <p style="margin: 10px 0;">We offer a 100% no-loss guarantee if you hold your investment for at least 2 years. In the unlikely event of any loss after 2 years, we will cover the difference between your deployed capital and the net realized capital.</p>
+              </details>
+            </div>
+          </td>
+          <td style="padding: 10px; border: 1px solid #dddddd;"><img src="https://img.icons8.com/ios-filled/50/228B22/checked--v1.png" width="30"/></td>
+          <td style="padding: 10px; border: 1px solid #dddddd;"><img src="https://img.icons8.com/ios-filled/50/FF6347/cancel.png" width="30"/></td>
+        </tr>
       </tbody>
     </table>
     ''', unsafe_allow_html=True)
+
 
     # Summary Section with Structured Borders
     st.markdown('''
@@ -898,7 +909,6 @@ elif page == "Why Whalestreet PMS Stands Out":
         <p style="font-size: 16px; color: #333333;">At Whalestreet, we believe in giving you full control and peace of mind. Unlike other providers, we ensure transparency in all our reports, allow you to see exactly where your money is invested, and guarantee that your capital remains in your account, reducing any risk of fraud. Additionally, we provide personalized weekly guidance and make sure that all dividends, splits, and bonuses go directly to your bank account, ensuring you get the most out of your investments.</p>
     </div>
     ''', unsafe_allow_html=True)
-
 
 elif page == "Understand the Risk":
 
