@@ -6,8 +6,7 @@ import numpy as np
 from statsmodels.tsa.arima.model import ARIMA
 import datetime
 import os
-import matplotlib.pyplot as plt
-import seaborn as sns
+
 
 
 
